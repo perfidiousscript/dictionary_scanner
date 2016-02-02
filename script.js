@@ -71,8 +71,8 @@ var scan = function(){
         for(var oldSequence in solutionObject){
             console.log("old sequence: ", oldSequence);
             console.log("new sequence: ", newSequence);
-            if(oldSequence.sequence === newSequence) {
-                !isDuplicate;
+            if(newSequence === oldSequence) {
+                isDuplicate = true;
                 break;
             }
         }
