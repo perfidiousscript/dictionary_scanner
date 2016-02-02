@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "'Sam Moss'",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^2.2.0"
+  }
 }
