@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scan": "node ./server.js"
   },
   "author": "'Sam Moss'",
   "license": "ISC",
-  "dependencies": {
-    "jquery": "^2.2.0"
-  }
+  "dependencies": {}
 }
