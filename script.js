@@ -7,7 +7,8 @@ var preFormattedDictionary = "";
 var formattedDictionary = [];
 var wordObject = {};
 var solutionObject = {};
-var finalSequenceList;
+var finalSequenceList = [];
+var finalWordList = [];
 
 
 //Pulls the .txt into the script. I used jquery here
@@ -69,8 +70,6 @@ var scan = function(){
     var checkForDuplicate = function(newSequence, referenceWord){
         var isDuplicate = false;
         for(var oldSequence in solutionObject){
-            console.log("old sequence: ", oldSequence);
-            console.log("new sequence: ", newSequence);
             if(newSequence === oldSequence) {
                 isDuplicate = true;
                 break;
@@ -85,8 +84,15 @@ var scan = function(){
         }
     };
 
-    //var printSolution(solutionObject){};
+    var printSolution = function(solutionObject){
+        for(var sequenceObject in solutionObject){
+            finalSequenceList.push(solutionObject[sequenceObject].sequence);
+            finalWordList.push(solutionObject[sequenceObject].word);
+        }
+    };
 
     iterateThroughWords(formattedDictionary);
-    console.log('solution object: ', solutionObject);
+    printSolution(solutionObject);
+    console.log("here is finalSequenceList:", finalSequenceList);
+    console.log("here is finalWordList:", finalWordList)
 };
