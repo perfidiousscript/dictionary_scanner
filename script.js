@@ -1,6 +1,8 @@
 /**
  * Created by samuelmoss on 2/1/16.
  */
+'use strict';
+
 var preFormattedDictionary = "";
 var formattedDictionary = [];
 var wordObject = {};
@@ -65,18 +67,26 @@ var scan = function(){
     //If the sequence exists it removes it from the object, otherwise it
     //adds the sequence in the object.
     var checkForDuplicate = function(newSequence, referenceWord){
-        for(oldSequence in solutionObject){
+        var isDuplicate = false;
+        for(var oldSequence in solutionObject){
+            console.log("old sequence: ", oldSequence);
+            console.log("new sequence: ", newSequence);
             if(oldSequence.sequence === newSequence) {
-                delete solutionObject[oldSequence];
-                return;
+                !isDuplicate;
+                break;
             }
         }
-        solutionObject[newSequence] = {};
-        solutionObject[newSequence].sequence = newSequence;
-        solutionObject[newSequence].word = referenceWord.word;
+        if(isDuplicate){
+            delete solutionObject[newSequence];
+        } else {
+            solutionObject[newSequence] = {};
+            solutionObject[newSequence].sequence = newSequence;
+            solutionObject[newSequence].word = referenceWord.word;
+        }
     };
 
     //var printSolution(solutionObject){};
 
     iterateThroughWords(formattedDictionary);
+    console.log('solution object: ', solutionObject);
 };
