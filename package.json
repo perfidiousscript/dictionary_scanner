@@ -4,10 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "scan": "node server.js"
+    "test": "mocha ./node_modules/mocha/mocha.js",
+    "start": "node ./server.js"
   },
   "author": "'Sam Moss'",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
 }
