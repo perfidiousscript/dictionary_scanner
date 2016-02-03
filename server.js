@@ -5,7 +5,6 @@ var fs = require("fs");
 var script = require("./script");
 var solutionObject = {};
 
-
 fs.readFile("./trivial_dictionary.txt", "utf8",function (err,data) {
 
     if (err) {
@@ -13,5 +12,19 @@ fs.readFile("./trivial_dictionary.txt", "utf8",function (err,data) {
     }
 
     solutionObject = script.execute(data);
-    console.log("here is solutionObject", solutionObject)
+
+    fs.writeFile('sequences.txt', solutionObject.finalSequenceList.join('/n'), function (err) {
+        if (err) {
+            throw err;
+        }
+    });
+
+    fs.writeFile('words.txt', solutionObject.finalWordList.join('/n'), function (err) {
+        if (err) {
+            throw err;
+        }
+    });
+
 });
+
+
