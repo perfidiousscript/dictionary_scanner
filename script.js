@@ -3,24 +3,27 @@
  */
 'use strict';
 
-var preFormattedDictionary = "";
 var formattedDictionary = [];
 var wordObject = {};
 var solutionObject = {};
 var finalSequenceList = [];
 var finalWordList = [];
 
-//This function formats the .txt into an array.
+//This function formats the .txt into an array
+// wherein each element is one word.
 var format = function(dictionary){
     formattedDictionary = dictionary.split("\n");
-    console.log("here is formatted dictionary: ", formattedDictionary);
+    console.log("here is formattedDictionary",formattedDictionary)
 };
-console.log("preFormattedDictionary: ", preFormattedDictionary);
-format(preFormattedDictionary);
+
 //This function populates the wordObject
-// with an object for every word
-// greater than four letters
-// in the dictionary.
+// with an object keyed to every word
+// greater than four
+// letters in the dictionary.
+// Each object in the wordObject
+// contains an array of the letters of the word
+// and an empty array to hold all the sequences of gour letters generated from
+// that word.
 var iterateThroughWords = function(wordArray){
     for(var i = 0; i < wordArray.length; i++){
         if(wordArray[i].length > 3){
@@ -35,7 +38,8 @@ var iterateThroughWords = function(wordArray){
 };
 
 //This function runs through each word and
-//assembles the various four letter sequences.
+//assembles the various four letter sequences
+// that can be made from that word.
 var assembleSequences = function(currentWordObject){
     for(var j = 3; j < currentWordObject.letters.length; j++){
         var letterList = currentWordObject.letters;
@@ -73,8 +77,5 @@ var printSolution = function(solutionObject){
     }
 };
 
-iterateThroughWords(formattedDictionary);
-printSolution(solutionObject);
-console.log("here is finalSequenceList:", finalSequenceList);
-console.log("here is finalWordList:", finalWordList);
 
+module.exports.format = format;
