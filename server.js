@@ -13,18 +13,16 @@ fs.readFile("./trivial_dictionary.txt", "utf8",function (err,data) {
 
     solutionObject = script.execute(data);
 
-    fs.writeFile('sequences.txt', solutionObject.finalSequenceList.join('/n'), function (err) {
+    fs.writeFile('sequences.txt', "'sequences'\n\n\n" + solutionObject.finalSequenceList.join('\n'), function (err) {
         if (err) {
             throw err;
         }
-    });
-
-    fs.writeFile('words.txt', solutionObject.finalWordList.join('/n'), function (err) {
+    })
+    ;
+    fs.writeFile('words.txt', "'words'\n\n\n" + solutionObject.finalWordList.join('\n'), function (err) {
         if (err) {
             throw err;
         }
     });
 
 });
-
-
