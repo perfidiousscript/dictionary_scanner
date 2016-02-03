@@ -3,6 +3,7 @@
  */
 var fs = require("fs");
 var script = require("./script");
+var solutionObject = {};
 
 
 fs.readFile("./trivial_dictionary.txt", "utf8",function (err,data) {
@@ -11,5 +12,6 @@ fs.readFile("./trivial_dictionary.txt", "utf8",function (err,data) {
         return console.log(err);
     }
 
-    script.format(data);
+    solutionObject = script.execute(data);
+    console.log("here is solutionObject", solutionObject)
 });

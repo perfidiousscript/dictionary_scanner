@@ -8,6 +8,7 @@ var wordObject = {};
 var solutionObject = {};
 var finalSequenceList = [];
 var finalWordList = [];
+var returnedObject = {};
 
 //This function formats the .txt into an array
 // wherein each element is one word.
@@ -75,7 +76,16 @@ var printSolution = function(solutionObject){
         finalSequenceList.push(solutionObject[sequenceObject].sequence);
         finalWordList.push(solutionObject[sequenceObject].word);
     }
+    returnedObject.finalSequenceList = finalSequenceList;
+    returnedObject.finalWordList = finalWordList;
+};
+
+var execute = function(data){
+    format(data);
+    iterateThroughWords(formattedDictionary);
+    printSolution(solutionObject);
+    return returnedObject;
 };
 
 
-module.exports.format = format;
+module.exports.execute = execute;
