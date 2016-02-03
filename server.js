@@ -10,7 +10,8 @@ var solutionObject = {};
 var readFile = process.argv[2];
 
 //Reads the desired .txt file, executes the functions in the script,
-//then writes the returned arrays as new .txt. files.
+//then writes the returned arrays (sequences and their associated words)
+// as new .txt files.
 fs.readFile(readFile, "utf8",function (err,data) {
     if (err) {
         return console.log(err);
