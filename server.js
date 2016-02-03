@@ -5,7 +5,9 @@ var fs = require("fs");
 var script = require("./script");
 var solutionObject = {};
 
-fs.readFile("./trivial_dictionary.txt", "utf8",function (err,data) {
+var readFile = process.argv[2];
+
+fs.readFile(readFile, "utf8",function (err,data) {
 
     if (err) {
         return console.log(err);
