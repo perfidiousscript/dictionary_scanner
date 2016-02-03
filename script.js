@@ -71,6 +71,9 @@ var checkForDuplicate = function(newSequence, referenceWord){
     }
 };
 
+//This function pushes the final arrays of
+//sequences and words to an object which will
+// be exported to themain server.
 var printSolution = function(solutionObject){
     for(var sequenceObject in solutionObject){
         finalSequenceList.push(solutionObject[sequenceObject].sequence);
@@ -80,6 +83,8 @@ var printSolution = function(solutionObject){
     returnedObject.finalWordList = finalWordList;
 };
 
+//This function executes all the other functions and
+//is exported to the main server.
 var execute = function(data){
     format(data);
     iterateThroughWords(formattedDictionary);
