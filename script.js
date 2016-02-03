@@ -58,12 +58,9 @@ var assembleSequences = function(currentWordObject){
 //adds the sequence in the object.
 var checkForDuplicate = function(newSequence, referenceWord){
     var isDuplicate = false;
-    for(var oldSequence in solutionObject){
-        if(newSequence.toLowerCase() === oldSequence.toLowerCase()) {
-            isDuplicate = true;
-            oldSequence.isDuplicate = true;
-            break;
-        }
+    if(solutionObject[newSequence.toLowerCase()]){
+        isDuplicate = true;
+        solutionObject[newSequence.toLowerCase()].isDuplicate = true;
     }
     if(!isDuplicate){
         solutionObject[newSequence] = {};
