@@ -77,3 +77,4 @@ iterateThroughWords(formattedDictionary);
 printSolution(solutionObject);
 console.log("here is finalSequenceList:", finalSequenceList);
 console.log("here is finalWordList:", finalWordList);
+
