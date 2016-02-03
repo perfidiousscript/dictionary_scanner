@@ -2,4 +2,3 @@ arrows
 carrots
 give
 me
-CARROTS

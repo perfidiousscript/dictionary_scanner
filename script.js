@@ -69,14 +69,31 @@ var checkForDuplicate = function(newSequence, referenceWord){
     }
 };
 
-//This function pushes the final arrays of
-//sequences and words to an object which will
-// be exported to themain server.
+//This function checks whether a
+// sequence is a duplicate. If it
+// is not holds that sequence, sorts the
+// sequences alphabetically then pushes the final
+// arrays of sequences and words to an object which will
+// be exported to the main server.
 var printSolution = function(solutionObject){
+    var sortableArray = [];
     for(var sequenceObject in solutionObject){
-        finalSequenceList.push(solutionObject[sequenceObject].sequence);
-        finalWordList.push(solutionObject[sequenceObject].word);
+        if(!solutionObject[sequenceObject].isDuplicate){
+          sortableArray.push([solutionObject[sequenceObject].sequence,solutionObject[sequenceObject].word])
+        }
     }
+    sortableArray = sortableArray.sort(
+        function (a, b) {
+        if (a[0] > b[0]) {
+            return 1;
+        }
+        if (a[0] < b[0]) {
+            return -1;
+        }
+        return 0;
+    });
+    finalSequenceList = sortableArray.map(function(array){return array[0]});
+    finalWordList = sortableArray.map(function(array){return array[1]});
     returnedObject.finalSequenceList = finalSequenceList;
     returnedObject.finalWordList = finalWordList;
 };
