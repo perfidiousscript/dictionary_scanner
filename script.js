@@ -43,28 +43,29 @@ var iterateThroughWords = function(wordArray){
 // that can be made from that word.
 var assembleSequences = function(currentWordObject){
     for(var j = 3; j < currentWordObject.letters.length; j++){
-        var letterList = currentWordObject.letters;
-        var currentSequence = letterList[j - 3] + letterList[j - 2] + letterList[j - 1] + letterList[j];
+        var position = function(n){
+            return currentWordObject.letters[j - n];
+        };
+        var currentSequence = position(3) + position(2) + position(1) + position(0);
         currentWordObject.sequences.push(currentSequence);
         checkForDuplicate(currentSequence, currentWordObject);
     }
 };
 
 //This function runs once for each sequence.
-//It checks each new sequence against those that already exist.
+//It checks the new sequence against those that already exist.
 //If the sequence exists it removes it from the object, otherwise it
 //adds the sequence in the object.
 var checkForDuplicate = function(newSequence, referenceWord){
     var isDuplicate = false;
     for(var oldSequence in solutionObject){
-        if(newSequence === oldSequence) {
+        if(newSequence.toLowerCase() === oldSequence.toLowerCase()) {
             isDuplicate = true;
+            oldSequence.isDuplicate = true;
             break;
         }
     }
-    if(isDuplicate){
-        delete solutionObject[newSequence];
-    } else {
+    if(!isDuplicate){
         solutionObject[newSequence] = {};
         solutionObject[newSequence].sequence = newSequence;
         solutionObject[newSequence].word = referenceWord.word;
