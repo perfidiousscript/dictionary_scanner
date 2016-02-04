@@ -12,4 +12,8 @@ describe('dictionary scanner',function(){
         assert.deepEqual(script.execute("arrows\ncarrots\ngive\nme"),{ finalSequenceList: [ 'carr', 'give', 'rots', 'rows', 'rrot', 'rrow' ],
             finalWordList: [ 'carrots', 'give', 'carrots', 'arrows', 'carrots', 'arrows' ] });
     });
+    it('should work handle uppercase',function(){
+        assert.deepEqual(script.execute("arrows\nCARROTS\ngive\nme"),{ finalSequenceList: [ 'carr', 'give', 'rots', 'rows', 'rrot', 'rrow' ],
+            finalWordList: [ 'CARROTS', 'give', 'CARROTS', 'arrows', 'CARROTS', 'arrows' ] });
+    });
 });

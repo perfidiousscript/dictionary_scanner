@@ -40,7 +40,7 @@ var iterateThroughWords = function(wordArray){
 var assembleSequences = function(currentWordObject){
     for(var j = 3; j < currentWordObject.letters.length; j++){
         var position = function(n){
-            return currentWordObject.letters[j - n];
+            return currentWordObject.letters[j - n].toLowerCase();
         };
         var currentSequence = position(3) + position(2) + position(1) + position(0);
         currentWordObject.sequences.push(currentSequence);
@@ -53,8 +53,8 @@ var assembleSequences = function(currentWordObject){
 //If the sequence exists it gives the existing sequence an 'isDuplicate' key of true,
 //otherwise it adds the sequence to the object.
 var checkForDuplicate = function(newSequence, referenceWord){
-    if(solutionObject[newSequence.toLowerCase()]){
-        solutionObject[newSequence.toLowerCase()].isDuplicate = true;
+    if(solutionObject[newSequence]){
+        solutionObject[newSequence].isDuplicate = true;
     } else {
         solutionObject[newSequence] = {};
         solutionObject[newSequence].sequence = newSequence;
