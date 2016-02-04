@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "mocha ./node_modules/mocha/mocha.js",
+    "test": "node_modules/.bin/mocha",
     "start": "node ./server.js"
   },
   "author": "'Sam Moss'",

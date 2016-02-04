@@ -97,6 +97,7 @@ var execute = function(data){
     format(data);
     iterateThroughWords(formattedDictionary);
     printSolution(solutionObject);
+    console.log(returnedObject);
     return returnedObject;
 };
 
