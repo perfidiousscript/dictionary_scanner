@@ -5,11 +5,11 @@ describe('dictionary scanner',function(){
     it('should always pass',function(){
        assert.equal(1+1,2);
     });
-    it('should return an alphabetical array of sequences',function(){
-        assert.equal(script('oooo'),{finalSeqeunceList:['oooo'],finalWordList:['oooo']});
+    it('should work on a single sequence',function(){
+        assert.deepEqual(script.execute('oooo'),{finalSequenceList:['oooo'],finalWordList:['oooo']});
     });
-    it('should return an alphabetical array of sequences',function(){
-        assert.equal(script("arrows\ncarrots\ngive\nme"),{ finalSequenceList: [ 'carr', 'give', 'rots', 'rows', 'rrot', 'rrow' ],
-            finalWordList: [ 'carrots', 'give', 'carrots', 'arrows', 'carrots', 'arrows' ] });
-    });
+    //it('should work on the trivial dictionary',function(){
+    //    assert.deepEqual(script.execute("arrows\ncarrots\ngive\nme"),{ finalSequenceList: [ 'carr', 'give', 'rots', 'rows', 'rrot', 'rrow' ],
+    //        finalWordList: [ 'carrots', 'give', 'carrots', 'arrows', 'carrots', 'arrows' ] });
+    //});
 });
