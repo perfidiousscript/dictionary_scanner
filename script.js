@@ -94,6 +94,13 @@ var printSolution = function(solutionObject){
 //This function executes all the other functions and
 //is exported to the main server.
 var execute = function(data){
+     formattedDictionary = [];
+     wordObject = {};
+     solutionObject = {};
+     finalSequenceList = [];
+     finalWordList = [];
+     returnedObject = {};
+
     format(data);
     iterateThroughWords(formattedDictionary);
     printSolution(solutionObject);
